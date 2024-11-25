@@ -6,7 +6,6 @@ from datetime import datetime
 import threading
 
 def ping(host):
-    """Pings a host and returns True if successful, False otherwise."""
     try:
         result = subprocess.run(
             ["ping", "-n", "1", host],  # Use "ping -n 1" on Windows
@@ -19,7 +18,6 @@ def ping(host):
         return False
 
 def log_message(message):
-    """Logs a message to the GUI and a log file."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"[{timestamp}] {message}\n"
     log_text.insert(tk.END, log_entry)
@@ -29,7 +27,6 @@ def log_message(message):
         log_file.write(log_entry)
 
 def monitor_internet(interval=60):
-    """Monitors internet connectivity and pings the user-defined list of IPs."""
     while True:
         log_message("Pinging 8.8.8.8 to check internet connectivity...")
         if ping("8.8.8.8"):
@@ -44,7 +41,6 @@ def monitor_internet(interval=60):
         time.sleep(interval)
 
 def add_ip():
-    """Adds an IP address to the list."""
     ip = ip_entry.get().strip()
     if ip and ip not in ip_addresses:
         ip_addresses.append(ip)
@@ -53,7 +49,6 @@ def add_ip():
     ip_entry.delete(0, tk.END)
 
 def remove_selected_ip():
-    """Removes the selected IP from the list."""
     selected = ip_list.curselection()
     if selected:
         ip = ip_list.get(selected)
@@ -62,7 +57,6 @@ def remove_selected_ip():
         log_message(f"Removed IP: {ip}")
 
 def start_monitoring():
-    """Starts the monitoring in a separate thread with the selected interval."""
     try:
         # Convert the selected interval to seconds
         interval_map = {
