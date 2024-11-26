@@ -24,7 +24,8 @@ python3 ping_monitor.py
 1. Add IP addresses to the list using the input box and "Add" button.
 2. Select the desired monitoring interval from the dropdown menu.
 3. Click "Start Monitoring" to begin checking connectivity.
-4. View real-time logs in the GUI or check the ping_log.txt file for a complete history.
+4. (Optional) Enable Traceroute to pings when internet connectivity is lost for more advanced logging.
+5. View real-time logs in the GUI or check the ping_log.txt file for a complete history.
 
 # Requirements
 Python 3.7 or later
