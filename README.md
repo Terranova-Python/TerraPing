@@ -12,12 +12,11 @@ Dynamic IP Management: Add and remove IP addresses directly through the GUI.
 Interval Selection: Choose from 1-minute, 5-minute, or 10-minute monitoring intervals.
 Real-Time Logging: Logs results in a scrollable GUI and saves them to ping_log.txt.
 Responsive GUI: Background monitoring ensures the application remains responsive.
+Advanced Network Diagnostics: Ability to enable a traceroute on failure.
 
 # How to Use
 Launch the application by running the script:
-bash
-Copy code
-python ping_monitor.py
+python3 ping_monitor.py
 
 Add IP addresses to the list using the input box and "Add" button.
 Select the desired monitoring interval from the dropdown menu.
@@ -34,4 +33,3 @@ The tool assumes ping -n syntax for Windows-based systems. Update the code for W
 # Future Enhancements
 Add support for exporting the list of IPs.
 Enable real-time notification (e.g., sound or popup) on connectivity loss.
-Integrate advanced network diagnostics (e.g., traceroute).
