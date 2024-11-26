@@ -29,7 +29,7 @@ def log_message(message):
         log_file.write(log_entry)
 
 def monitor_internet(interval=60):
-    """Monitors internet connectivity and pings the user-defined list of IPs."""
+    """Monitors internet connectivity and optionally performs traceroutes."""
     global monitoring
     while monitoring:
         log_message("Pinging 8.8.8.8 to check internet connectivity...")
@@ -44,8 +44,10 @@ def monitor_internet(interval=60):
                     log_message(f"Ping to {ip} successful.")
                 else:
                     log_message(f"Ping to {ip} failed.")
+                    if traceroute_enabled.get():  # Check if traceroute is enabled
+                        perform_traceroute(ip)
         time.sleep(interval)
-    log_message("Monitoring was stopped.")
+    log_message("Monitoring stopped.")
 
 def stop_monitoring():
     """Stops the monitoring process."""
@@ -90,10 +92,18 @@ def start_monitoring():
     except KeyError:
         log_message("Invalid interval selected. Please choose a valid option.")
 
+def perform_traceroute(ip):
+    """Performs a traceroute to the given IP address and logs the result."""
+    log_message(f"Performing traceroute to {ip}...")
+    try:
+        result = subprocess.run(["tracert", ip], capture_output=True, text=True, timeout=30)
+        log_message(f"Traceroute to {ip}:\n{result.stdout}")
+    except Exception as e:
+        log_message(f"Error during traceroute to {ip}: {e}")
 
 # GUI setup
 root = tk.Tk()
-root.title("TerraPing v1.0")
+root.title("TerraPing v1.2")
 
 # Input section
 input_frame = tk.Frame(root)
@@ -119,6 +129,7 @@ stop_button.grid(row=0, column=1, padx=5)
 remove_button = tk.Button(input_frame, text="Remove Selected", command=remove_selected_ip)
 remove_button.grid(row=0, column=3, padx=5)
 
+
 # Listbox for IP addresses
 ip_list = tk.Listbox(root, width=40, height=10)
 ip_list.pack(pady=10)
@@ -129,9 +140,14 @@ log_text.pack(pady=10)
 
 selected_interval = tk.StringVar(value="1 Minute")
 
-# Global
+# Globals
 ip_addresses = []
 monitoring = False
+traceroute_enabled = tk.BooleanVar(value=False)
+
+# Button for traceroute
+traceroute_toggle = tk.Checkbutton(root, text="Enable Traceroute?", variable=traceroute_enabled)
+traceroute_toggle.pack(pady=5)
 
 tk.Label(input_frame, text="Ping Interval:").grid(row=1, column=0, padx=5)
 interval_menu = tk.OptionMenu(input_frame, selected_interval, "1 Minute", "5 Minutes", "10 Minutes")
