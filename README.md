@@ -32,5 +32,4 @@ Modules: tkinter, subprocess, datetime, threading
 The tool assumes ping -n syntax for Windows-based systems. Update the code for Windows (ping -c) if necessary.
 
 # Future Enhancements
-Add support for exporting the list of IPs.
-Enable real-time notification (e.g., sound or popup) on connectivity loss.
+Add support for saving the list of IPs added in a session
