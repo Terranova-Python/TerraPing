@@ -11,11 +11,11 @@ The Ping Monitor Tool is a Python-based application with a GUI built using Tkint
 ![image](https://github.com/user-attachments/assets/d12796f6-a04f-473c-a81b-5a7ba4fd9599)
 
 # Features
-Dynamic IP Management: Add and remove IP addresses directly through the GUI.
-Interval Selection: Choose from 1-minute, 5-minute, or 10-minute monitoring intervals.
-Real-Time Logging: Logs results in a scrollable GUI and saves them to ping_log.txt.
-Responsive GUI: Background monitoring ensures the application remains responsive.
-Advanced Network Diagnostics: Ability to enable a traceroute on failure.
+1. Dynamic IP Management: Add and remove IP addresses directly through the GUI.
+2. Interval Selection: Choose from 1-minute, 5-minute, or 10-minute monitoring intervals.
+3. Real-Time Logging: Logs results in a scrollable GUI and saves them to ping_log.txt.
+4. Responsive GUI: Background monitoring ensures the application remains responsive.
+5. Advanced Network Diagnostics: Ability to enable a traceroute on failure.
 
 # How to Use
 **Download the ZIP file and export to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe, logs will be exported automatically via .txt to the root of this folder.**
