@@ -26,6 +26,7 @@ View real-time logs in the GUI or check the ping_log.txt file for a complete his
 # Requirements
 Python 3.7 or later
 Modules: tkinter, subprocess, datetime, threading
+**A .exe version of this can be made available for you in a Zip folder upon request**
 
 # Known Issues
 The tool assumes ping -n syntax for Windows-based systems. Update the code for Windows (ping -c) if necessary.
