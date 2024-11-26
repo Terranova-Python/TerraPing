@@ -33,7 +33,7 @@ Python 3.7 or later
 Modules: tkinter, subprocess, datetime, threading
 
 # Known Issues
-The tool assumes ping -n syntax for Windows-based systems. Update the code for Windows (ping -c) if necessary.
+The tool assumes ping -n syntax for Windows-based systems. Update the code for Linux (ping -c) if you plan to run this on Linux.
 
 # Future Enhancements
 Add support for saving the list of IPs added in a session
