@@ -1,5 +1,5 @@
 # TerraPing
-Pinging tool for Sysadmins and Network Engineers for monitoring outages on internal network infrastructure.
+Pinging tool for Sysadmins and Network Engineers for monitoring outages on internal network infrastructure during an internet outage to rule out LAN issues.
 
 Author: Terranovatech
 Version: 1.0
