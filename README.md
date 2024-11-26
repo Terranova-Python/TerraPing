@@ -21,10 +21,10 @@ Advanced Network Diagnostics: Ability to enable a traceroute on failure.
 Launch the application by running the script:
 python3 ping_monitor.py
 
--Add IP addresses to the list using the input box and "Add" button.
--Select the desired monitoring interval from the dropdown menu.
--Click "Start Monitoring" to begin checking connectivity.
--View real-time logs in the GUI or check the ping_log.txt file for a complete history.
+1. Add IP addresses to the list using the input box and "Add" button.
+2. Select the desired monitoring interval from the dropdown menu.
+3. Click "Start Monitoring" to begin checking connectivity.
+4. View real-time logs in the GUI or check the ping_log.txt file for a complete history.
 
 # Requirements
 Python 3.7 or later
