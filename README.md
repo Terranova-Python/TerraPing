@@ -15,13 +15,16 @@ Responsive GUI: Background monitoring ensures the application remains responsive
 Advanced Network Diagnostics: Ability to enable a traceroute on failure.
 
 # How to Use
+**Download the ZIP file and export to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe, logs will be exported automatically via .txt to the root of this folder.**
+
+**IDE or Python Users:**
 Launch the application by running the script:
 python3 ping_monitor.py
 
-Add IP addresses to the list using the input box and "Add" button.
-Select the desired monitoring interval from the dropdown menu.
-Click "Start Monitoring" to begin checking connectivity.
-View real-time logs in the GUI or check the ping_log.txt file for a complete history.
+-Add IP addresses to the list using the input box and "Add" button.
+-Select the desired monitoring interval from the dropdown menu.
+-Click "Start Monitoring" to begin checking connectivity.
+-View real-time logs in the GUI or check the ping_log.txt file for a complete history.
 
 # Requirements
 Python 3.7 or later
