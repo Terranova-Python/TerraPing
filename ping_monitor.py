@@ -9,7 +9,8 @@ def ping(host):
     """Pings a host and returns True if successful, False otherwise."""
     try:
         result = subprocess.run(
-            ["ping", "-n", "1", host],  # Use "ping -n 1" on Windows
+            ["ping", "-n", "1", host],  # Comment this line out and enable Line 13 if running on Linux.
+            # ["ping", "-c", "1", host],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
