@@ -1,11 +1,11 @@
 # TerraPing
 Pinging tool for Sysadmins and Network Engineers for monitoring outages on internal network infrastructure.
 
-Author: Terranovatech
-Version: 1.2
+Author: Terranovatech 2024
+Version: 1.3
 
 # Description
-The Ping Monitor Tool is a Python-based application with a GUI built using Tkinter. It monitors internet connectivity by periodically pinging a target address (8.8.8.8). If internet access is lost, it pings a user-specified list of IP addresses to help identify potential issues in the local network or external infrastructure. Additionally, users can enable a traceroute for more advanced troubleshooting. 
+The Ping Monitor Tool is a Python-based application with a GUI built using Tkinter. It monitors internet connectivity by periodically pinging a target address (8.8.8.8). If internet access is lost, it pings a user-specified list of IP addresses to help identify potential issues in the local network or external infrastructure. Additionally, users can enable a traceroute and a simple common port scan for more advanced troubleshooting.
 
 ![image](https://github.com/user-attachments/assets/8deabf38-14a1-47d5-8677-a0f9ef611ca7)
 ![image](https://github.com/user-attachments/assets/d12796f6-a04f-473c-a81b-5a7ba4fd9599)
@@ -16,6 +16,7 @@ The Ping Monitor Tool is a Python-based application with a GUI built using Tkint
 3. Logs results in a scrollable GUI and saves them to ping_log.txt.
 4. Background monitoring ensures the application remains responsive.
 5. Ability to enable a traceroute on failure.
+6. Portscans for advanced server troubleshooting.
 
 # How to Use
 **Download the ZIP file and export to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe, logs will be exported automatically via .txt to the root of this folder.**
@@ -31,12 +32,11 @@ python3 ping_monitor.py
 5. View real-time logs in the GUI or check the ping_log.txt file for a complete history.
 
 # Requirements
-
+If running on IDE or Pythin natively:
 Python 3.7 or later
 Modules: tkinter, subprocess, datetime, threading
 
+Otherwise, just a windows OS is required to run the .exe
+
 # Known Issues
 The tool assumes ping -n syntax for Windows-based systems. Update the code for Linux (ping -c) if you plan to run this on Linux.
-
-# Future Enhancements
-Add support for saving the list of IPs added in a session
