@@ -1,8 +1,8 @@
 # TerraPing
 Pinging tool for Sysadmins and Network Engineers for monitoring outages on internal network infrastructure.
 
-Author: Terranovatech 2024
-Version: 1.3
+Author: Anthony Terrano
+# Version: 1.3
 
 # Description
 The Ping Monitor Tool is a Python-based application with a GUI built using Tkinter. It monitors internet connectivity by periodically pinging a target address (8.8.8.8). If internet access is lost, it pings a user-specified list of IP addresses to help identify potential issues in the local network or external infrastructure. Additionally, users can enable a traceroute and a simple common port scan for more advanced troubleshooting.
