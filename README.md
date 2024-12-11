@@ -33,7 +33,7 @@ python3 ping_monitor.py
 # Requirements
 If running on IDE or Pythin natively:
 Python 3.7 or later
-Modules: tkinter, subprocess, datetime, threading
+Modules: customtkinter, tk, subprocess, datetime, threading, os, socket, ipaddress, csv, re, time
 
 Otherwise, just a windows OS is required to run the .exe
 
