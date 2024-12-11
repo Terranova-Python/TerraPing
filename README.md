@@ -6,7 +6,7 @@ Author: Anthony Terrano
 # Description
 The Ping Monitor Tool is a Python-based application with a GUI built using Tkinter. It monitors internet connectivity by periodically pinging a target address (8.8.8.8). If internet access is lost, it pings a user-specified list of IP addresses to help identify potential issues in the local network or external infrastructure. Additionally, users can enable a traceroute and a simple common port scan for more advanced troubleshooting.
 
-![image](https://github.com/user-attachments/assets/04a0b15a-6a9b-4bf9-9d91-8fe4a2244abe)
+![image](https://github.com/user-attachments/assets/5261923a-dc34-45b1-9bb1-d532427f3459)
 ![image](https://github.com/user-attachments/assets/d12796f6-a04f-473c-a81b-5a7ba4fd9599)
 
 # Features
