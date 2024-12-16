@@ -15,7 +15,7 @@ The Ping Monitor Tool is a Python-based application with a GUI built using Custo
 3. Logs results in a scrollable GUI and saves them to ping_log.txt.
 4. Background monitoring ensures the application remains responsive.
 5. Ability to enable a traceroute on failure.
-6. Portscans for advanced server troubleshooting.
+6. Portscans for advanced troubleshooting.
 
 # How to Use
 **Download the ZIP file and export to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe, logs will be exported automatically via .txt to the root of this folder.**
