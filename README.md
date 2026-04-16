@@ -1,41 +1,61 @@
 # TerraPing
-Pinging tool for Sysadmins and Network Engineers for monitoring outages on internal network infrastructure.
+Network Outage Diagnostic Tool for Sysadmins and Network Engineers.
 
 Author: Anthony Terrano
 
 # Description
-The Ping Monitor Tool is a Python-based application with a GUI built using CustomTkinter. It monitors internet connectivity by periodically pinging a target address (8.8.8.8). If internet access is lost, it pings a user-specified list of IP addresses to help identify potential issues in the local network or external infrastructure. Additionally, users can enable a traceroute and a simple common port scan for more advanced troubleshooting.
+TerraPing is a Python-based GUI application built with CustomTkinter that monitors internet connectivity by periodically pinging 8.8.8.8. When internet access is lost, it automatically pings a user-defined list of LAN IP addresses (gateways, switches, APs, servers) and performs a **root-cause analysis** to determine where the failure likely occurred. Results are reported in a clear diagnosis inside the GUI log and saved to a text file for later review.
+
+Optionally, users can enable **traceroute** (on unreachable hosts) and **port scanning** (on reachable hosts) for deeper troubleshooting.
 
 ![image](https://github.com/user-attachments/assets/5261923a-dc34-45b1-9bb1-d532427f3459)
 ![image](https://github.com/user-attachments/assets/d12796f6-a04f-473c-a81b-5a7ba4fd9599)
 
 # Features
-1. Add and remove IP addresses directly through the GUI.
+1. Add and remove LAN IP addresses directly through the GUI.
 2. Choose from 1-minute, 5-minute, or 10-minute monitoring intervals.
-3. Logs results in a scrollable GUI and saves them to ping_log.txt.
-4. Background monitoring ensures the application remains responsive.
-5. Ability to enable a traceroute on failure.
-6. Portscans for advanced troubleshooting.
+3. Automatic **root-cause analysis** on every outage — diagnoses whether the issue is local (adapter/cable), infrastructure (switch/AP), or upstream (ISP/modem).
+4. Logs results in a scrollable GUI and saves them to `logs/ping_log.txt`.
+5. Background monitoring keeps the application responsive.
+6. Optional traceroute on unreachable hosts for path analysis.
+7. Optional port scan on reachable hosts for service verification.
+8. Cross-platform: works on Windows, macOS, and Linux.
 
 # How to Use
-**Download the ZIP file and export to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe, logs will be exported automatically via .txt to the root of this folder.**
+**Download the ZIP file and extract to a location of choice. DO NOT REMOVE THE .EXE FROM ITS PARENT FOLDER. Run the .exe — logs will be exported automatically to the `logs/` folder.**
 
 **IDE or Python Users:**
 Launch the application by running the script:
-python3 ping_monitor.py
+```
+python ping_monitor.py
+```
 
-1. Add IP addresses to the list using the input box and "Add" button.
-2. Select the desired monitoring interval from the dropdown menu.
+1. Add LAN IP addresses (e.g. your default gateway, switches, APs) using the input box and "Add" button.
+2. Select the desired monitoring interval.
 3. Click "Start Monitoring" to begin checking connectivity.
-4. (Optional) Enable Traceroute to pings when internet connectivity is lost for more advanced logging.
-5. View real-time logs in the GUI or check the ping_log.txt file for a complete history.
+4. When an outage is detected, TerraPing sweeps all configured IPs and prints a diagnosis explaining the likely cause.
+5. (Optional) Enable Traceroute and/or Port Scan checkboxes for deeper diagnostic data.
+6. View real-time logs in the GUI or check `logs/ping_log.txt` for full history.
 
 # Requirements
-If running on IDE or Pythin natively:
-Python 3.7 or later
-Modules: customtkinter, tk, subprocess, datetime, threading, os, socket, ipaddress, csv, re, time
+If running from source:
+- Python 3.10 or later
+- Modules: `customtkinter`
 
-Otherwise, just a windows OS is required to run the .exe
+All other dependencies (`subprocess`, `threading`, `socket`, `ipaddress`, `csv`, `platform`, etc.) are part of the Python standard library.
 
-# Known Issues
-The tool assumes ping -n syntax for Windows-based systems. Update the code for Linux (ping -c) if you plan to run this on Linux.
+Install the required modules:
+```
+pip install -r requirements.txt
+```
+
+Otherwise, just a Windows OS is required to run the .exe.
+
+# Recommended LAN IPs to Monitor
+For best diagnostic results, add these in order:
+1. **Default gateway** (e.g. 192.168.1.1)
+2. **Core switch / distribution switch**
+3. **Key servers** (DNS, DHCP, file server)
+4. **Wireless access points**
+
+This ordering helps TerraPing pinpoint exactly where connectivity breaks down.
