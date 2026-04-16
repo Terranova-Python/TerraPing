@@ -1,6 +1,6 @@
 """
 TerraPing - Network Outage Diagnostic Tool
-Author: Anthony Terrano 2024
+Author: Anthony Terrano
 
 Monitors internet connectivity and, on failure, pings a user-defined list of
 LAN IP addresses to diagnose the root cause. Reports findings in a structured
@@ -44,6 +44,12 @@ CONFIG_FILE = os.path.join(IP_FOLDER, "config.json")
 INTERNET_TARGETS = ["8.8.8.8", "1.1.1.1"]
 MAX_PING_WORKERS = 10
 MAX_HISTORY = 30
+ICON_FOLDER = "icons"
+
+# When running as a PyInstaller bundle, _MEIPASS points to the temp extract dir
+BASE_DIR = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+ICO_PATH = os.path.join(BASE_DIR, ICON_FOLDER, "tp.ico")
+PNG_PATH = os.path.join(BASE_DIR, ICON_FOLDER, "tp.png")
 
 os.makedirs(LOG_FOLDER, exist_ok=True)
 os.makedirs(IP_FOLDER, exist_ok=True)
@@ -210,6 +216,13 @@ class TerraPing(ctk.CTk):
         self.title(f"TerraPing v{self.APP_VERSION}")
         self.geometry("600x740")
         self.minsize(540, 620)
+
+        # Set window icon (taskbar + title bar)
+        if os.path.isfile(ICO_PATH):
+            self.after(200, lambda: self.iconbitmap(ICO_PATH))
+        if os.path.isfile(PNG_PATH):
+            self._icon_photo = tk.PhotoImage(file=PNG_PATH)
+            self.iconphoto(True, self._icon_photo)
 
         ctk.set_appearance_mode("Dark")
         ctk.set_default_color_theme("blue")
