@@ -1,6 +1,6 @@
 """
 TerraPing - Network Outage Diagnostic Tool
-Author: Anthony Terrano
+Author: Anthony Terrano 2024
 
 Monitors internet connectivity and, on failure, pings a user-defined list of
 LAN IP addresses to diagnose the root cause. Reports findings in a structured
